@@ -39,22 +39,24 @@ const FoodView = ({ foods, onEdit, onDelete }) => {
                 </span>
               ))}
             </td>
-            <td className="border border-collapse border-gray-200 px-4 py-2">
+            <td className="border border-collapse border-gray-200 px-4 py-2 ">
               {food.isHalal ? "✅ Yes" : "❌ No"}
             </td>
-            <td className="border border-collapse border-gray-200 px-4 py-2 flex gap-4 justify-center">
-              <button
-                onClick={() => onEdit(food)}
-                className="bg-green-500 text-white px-3 py-1 rounded-lg"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => onDelete(food.id)}
-                className="bg-red-600 text-white px-3 py-1 rounded-lg"
-              >
-                Delete
-              </button>
+            <td className="border border-gray-200 px-4 py-2 text-center">
+              <div className="flex gap-4 justify-center">
+                <button
+                  onClick={() => onEdit(food)}
+                  className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-700"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => onDelete(food.id)}
+                  className="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-800"
+                >
+                  Delete
+                </button>
+              </div>
             </td>
           </tr>
         ))}

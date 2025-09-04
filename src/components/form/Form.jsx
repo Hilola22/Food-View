@@ -69,7 +69,7 @@ const Form = ({ food, onClose, onSave }) => {
             placeholder="Food name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full border px-3 py-2 rounded-lg outline-0 border-gray-200 mt-3"
+            className="w-full border px-3 py-2 rounded-lg outline-0 border-gray-200 mt-3 hover:border-gray-400 "
             required
           />
 
@@ -79,7 +79,7 @@ const Form = ({ food, onClose, onSave }) => {
             placeholder="Price"
             value={formData.price}
             onChange={handleChange}
-            className="w-full border px-3 py-2 rounded-lg outline-0 border-gray-200 mt-3"
+            className="w-full border px-3 py-2 rounded-lg outline-0 border-gray-200 mt-3 hover:border-gray-400"
             required
           />
 
@@ -89,13 +89,13 @@ const Form = ({ food, onClose, onSave }) => {
             placeholder="Country"
             value={formData.country}
             onChange={handleChange}
-            className="w-full border px-3 py-2 rounded-lg outline-0 border-gray-200 mt-3"
+            className="w-full border px-3 py-2 rounded-lg outline-0 border-gray-200 mt-3 hover:border-gray-400"
             required
           />
 
           <div className="mt-3 flex gap-1">
             <input
-              className="border w-full h-10 indent-3 rounded-lg border-gray-200"
+              className="border w-full h-10 indent-3 rounded-lg outline-0 border-gray-200 hover:border-gray-400"
               type="text"
               placeholder="Categories"
               value={categoryInput}
@@ -125,14 +125,15 @@ const Form = ({ food, onClose, onSave }) => {
             ))}
           </div>
 
-          <label className="flex items-center gap-2 mt-3 pl-1">
+          <label className="inline-block mt-3 pl-1 select-none cursor-pointer">
             <input
               type="checkbox"
+              id="isHalal"
               name="isHalal"
               checked={formData.isHalal}
               onChange={handleChange}
             />
-            <span>Is Halal?</span>
+              Is Halal?
           </label>
 
           <div className="flex justify-end gap-2 pt-4">
