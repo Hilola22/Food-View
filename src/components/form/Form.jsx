@@ -26,13 +26,21 @@ const Form = ({ food, onClose, onSave }) => {
   };
 
   const handleAddCategory = () => {
-    if (categoryInput.trim()) {
+    const exist = formData.categories.some((item) => item === categoryInput);
+    if (!exist && categoryInput.trim() !== "") {
       setFormData({
         ...formData,
         categories: [...formData.categories, categoryInput],
       });
-      setCategoryInput("");
     }
+    setCategoryInput("");
+  };
+
+  const handleRemoveCategory = (index) => {
+    setFormData((prev) => ({
+      ...prev,
+      categories: prev.categories.filter((_, inx) => inx !== index),
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -104,12 +112,16 @@ const Form = ({ food, onClose, onSave }) => {
 
           <div className="flex gap-2 flex-wrap mt-2">
             {formData.categories.map((cat, i) => (
-              <span
-                key={i}
-                className="bg-gray-200 px-2 py-1 text-sm rounded-lg"
-              >
-                {cat}
-              </span>
+              <div className="bg-gray-200 px-2 py-1 text-sm rounded-lg flex gap-2.5">
+                <span key={i}>{cat}</span>
+                <button
+                  type="button"
+                  onClick={() => handleRemoveCategory(i)}
+                  className="cursor-pointer hover:text-red-500"
+                >
+                  &#10005;
+                </button>
+              </div>
             ))}
           </div>
 

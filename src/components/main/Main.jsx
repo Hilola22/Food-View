@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "../form/Form";
 import FoodView from "../food-view/FoodView";
 
@@ -33,11 +33,11 @@ const Main = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="flex justify-between w-full h-[80px] bg-gray-200 items-center px-[20px]">
-        <h1 className="text-3xl font-bold mb-6">Food Store</h1>
+      <div className="flex justify-between w-full h-[80px] bg-[#f8bf0f] items-center px-[20px]">
+        <h1 className="text-3xl font-bold mb-6">Food Store 🍔</h1>
         <button
           onClick={handleCreate}
-          className="mb-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+          className="mb-4 bg-[#303435] text-white px-4 py-2 rounded-lg hover:bg-transparent hover:text-[#303435] hover:border border-[1px] border-[#303435]"
         >
           Add Food
         </button>

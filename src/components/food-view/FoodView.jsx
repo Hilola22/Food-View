@@ -1,5 +1,5 @@
 import React from "react";
-import halal from "../../assets/halal_certificate.jpg"
+import halal from "../../assets/halal_certificate.jpg";
 
 const FoodView = ({ foods, onEdit, onDelete }) => {
   return (
@@ -33,12 +33,16 @@ const FoodView = ({ foods, onEdit, onDelete }) => {
               {food.country}
             </td>
             <td className="border border-collapse border-gray-200 px-4 py-2">
-              {food.category}
+              {food?.categories?.map((item, inx) => (
+                <span key={inx}>
+                  {item} <br />
+                </span>
+              ))}
             </td>
             <td className="border border-collapse border-gray-200 px-4 py-2">
               {food.isHalal ? "✅ Yes" : "❌ No"}
             </td>
-            <td className="border border-collapse border-gray-200 px-4 py-2 flex gap-2 justify-end">
+            <td className="border border-collapse border-gray-200 px-4 py-2 flex gap-4 justify-center">
               <button
                 onClick={() => onEdit(food)}
                 className="bg-green-500 text-white px-3 py-1 rounded-lg"
